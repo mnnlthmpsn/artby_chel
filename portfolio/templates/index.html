@@ -2,26 +2,28 @@
 <html>
 
 <head>
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>ArtByChel | Welcome</title>
     <meta name="description" content="Mind capturing designs by ArtByChel">
-    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="static/assets/css/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/styles.min.css' %}">
 </head>
 
 <body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary shadow" id="mainNav" style="background-color: rgb(237,201,44);">
-        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top" style="color: rgb(0,0,0);font-family: 'Open Sans', sans-serif;">ArtByChel</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded"
+        <div class="container"><a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}" style="color: rgb(0,0,0);font-family: 'Open Sans', sans-serif;">ArtByChel</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background-color: rgb(0,0,0);"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive" style="font-family: 'Open Sans', sans-serif;">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">PORTFOLIO</a></li>
                     <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">ABOUT</a></li>
+                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#services">SERVICES</a></li>
                     <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">CONTACT</a></li>
                 </ul>
             </div>
@@ -41,8 +43,8 @@
                     </div>
                     {% endif %}
         <div class="container"><img class="img-fluid d-block mx-auto mb-5" src="static/assets/img/chel.png">
-            <h1>Rachel Afful</h1>
-            <h2 class="font-weight-light mb-0">- Graphic Designer -</h2>
+            <h1>ArtbyChel</h1>
+            
         </div>
     </header>
     <section id="portfolio" class="portfolio">
@@ -56,14 +58,14 @@
                         <a class="d-block mx-auto portfolio-item" data-toggle="modal" href="#{{portfolio.slug}}">
                             <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
                                 <div class="my-auto portfolio-item-caption-content w-100 text-center text-white"><i class="fa fa-search-plus fa-3x"></i></div>
-                            </div><img class="img-fluid" src="{{portfolio.image}}"></a>
+                            </div><img class="img-fluid" src="{{portfolio.image.url}}"></a>
                     </div>
                     {% endfor %}
-                    <a href="{% url 'portfolios' %}" >
+                    <a href="{% url 'portfolios' %}" class="px-5">
                         <button  class="btn" style="background-color: rgb(237,201,44); color: white;"> View More &rarr;</button>
                     </a>
                 {% else %}
-                <div class="container row justify-conten-center">
+                <div class="container row justify-content-center">
                     <h5 class="text-center">No Projects to show yet</h5>
                 </div>
                 {% endif %}
@@ -74,7 +76,57 @@
         <div class="container">
             <h2 class="text-uppercase text-center text-white">About</h2>
             <hr style="height: 1px;width: 150px;background-color: #ffffff;margin-top: 40px;margin-bottom: 40px;">
-            <p class="lead text-center">Hi, I'm Rachel and a Graphic Designer. Contact me for all your artworks</p>
+            <p class="lead text-center">Contact ArtByChel for all your designs. Check our Services for what we offer, Thank you</p>
+        </div>
+    </section>
+    <section id="services" class="bg-primary text-white mb-0" style="background-color: rgb(237,201,44) !important;">
+        <div class="container">
+            <h2 class="text-uppercase text-center text-white">Services</h2>
+            <hr style="height: 1px;width: 150px;background-color: #ffffff;margin-top: 40px;margin-bottom: 40px;">
+            <div class="row justify-content-center">
+                <div class="col-md-3 mb-2">
+                    <div class="card" style="background-color: rgb(237,201,44); border: 1px solid white !important;">
+                        <div class="card-body text-center">
+                          Logos
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <div class="card" style="background-color: rgb(237,201,44); border: 1px solid white !important;">
+                        <div class="card-body text-center">
+                          Business Cards
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <div class="card" style="background-color: rgb(237,201,44); border: 1px solid white !important;">
+                        <div class="card-body text-center">
+                          Letterheads
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <div class="card" style="background-color: rgb(237,201,44); border: 1px solid white !important;">
+                        <div class="card-body text-center">
+                          Invitation Cards
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <div class="card" style="background-color: rgb(237,201,44); border: 1px solid white !important;">
+                        <div class="card-body text-center">
+                          Posters & Flyers
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="background-color: rgb(237,201,44); border: 1px solid white !important;">
+                        <div class="card-body text-center">
+                          Branding
+                        </div>
+                      </div>
+                </div>
+            </div>
         </div>
     </section>
     <section id="contact">
@@ -132,7 +184,7 @@
                         <div class="row">
                             <div class="col-lg-8 mx-auto">
                                 <h2 class="text-uppercase text-secondary mb-0">{{portfolio.name}}</h2>
-                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="{{portfolio.image}}">
+                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="{{portfolio.image.url}}">
                             </div>
                         </div>
                     </div>
@@ -144,7 +196,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="static/assets/js/script.min.js"></script>
+    <script src="{% static 'assets/js/script.min.js' %}"></script>
 </body>
 
 </html>

@@ -17,7 +17,7 @@
 
 <body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary shadow" id="mainNav" style="background-color: rgb(237,201,44);">
-        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top" style="color: rgb(0,0,0);font-family: 'Open Sans', sans-serif;">ArtByChel</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded"
+        <div class="container"><a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}" style="color: rgb(0,0,0);font-family: 'Open Sans', sans-serif;">ArtByChel</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background-color: rgb(0,0,0);"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive" style="font-family: 'Open Sans', sans-serif;">
                 <ul class="nav navbar-nav ml-auto">
@@ -37,7 +37,7 @@
                         <a class="d-block mx-auto portfolio-item" data-toggle="modal" href="#{{portfolio.slug}}">
                             <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
                                 <div class="my-auto portfolio-item-caption-content w-100 text-center text-white"><i class="fa fa-search-plus fa-3x"></i></div>
-                            </div><img class="img-fluid" src="{{portfolio.image}}"></a>
+                            </div><img class="img-fluid" src="{{portfolio.image.url}}"></a>
                     </div>
                     {% endfor %}
                 {% else %}
@@ -65,7 +65,7 @@
         <div class="container"><small>Copyright ©&nbsp;ArtByChel 2020</small></div>
     </div>
     <div class="d-lg-none scroll-to-top position-fixed rounded"><a class="d-block js-scroll-trigger text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
-    {% for portfolio in portfolios|slice:"0:3" %}
+    {% for portfolio in portfolios %}
     <div class="modal text-center" role="dialog" tabindex="-1" id="{{portfolio.slug}}">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -75,7 +75,7 @@
                         <div class="row">
                             <div class="col-lg-8 mx-auto">
                                 <h2 class="text-uppercase text-secondary mb-0">{{portfolio.name}}</h2>
-                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="{{portfolio.image}}">
+                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="{{portfolio.image.url}}">
                             </div>
                         </div>
                     </div>
