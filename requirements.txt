@@ -22,7 +22,6 @@ django-storages==1.9.1
 dnspython==1.16.0
 dropbox==10.3.0
 ecdsa==0.15
-Electrum==3.3.8
 Flask==1.1.2
 Flask-HTTPAuth==3.2.4
 gpg===1.13.1-unknown
